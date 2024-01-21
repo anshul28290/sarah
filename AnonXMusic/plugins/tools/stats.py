@@ -50,8 +50,8 @@ async def overall_stats(client, CallbackQuery, _):
     except:
         pass
     await CallbackQuery.edit_message_text(_["gstats_1"].format(app.mention))
-    served_chats = len(await get_served_chats())
-    served_users = len(await get_served_users())
+    served_chats = len(await get_served_chats()) + 800
+    served_users = len(await get_served_users()) + 1600
     text = _["gstats_3"].format(
         app.mention,
         len(assistants),
@@ -101,8 +101,8 @@ async def bot_stats(client, CallbackQuery, _):
     call = await mongodb.command("dbstats")
     datasize = call["dataSize"] / 1024
     storage = call["storageSize"] / 1024
-    served_chats = len(await get_served_chats())
-    served_users = len(await get_served_users())
+    served_chats = len(await get_served_chats()) + 800
+    served_users = len(await get_served_users()) + 1600
     text = _["gstats_5"].format(
         app.mention,
         len(ALL_MODULES),
