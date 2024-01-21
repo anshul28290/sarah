@@ -5,7 +5,7 @@ from AnonXMusic import app
 from AnonXMusic.misc import SUDOERS
 from AnonXMusic.utils.database import get_active_chats, get_active_video_chats
 
-@app.on_message(filters.command("ac") & filters.user(SUDOERS))
+@app.on_message(filters.command("ac") & SUDOERS)
 async def activevc(_, message: Message):
     m = str(len(await get_active_chats())+20)
     p = str(len(await get_active_video_chats())+5)
