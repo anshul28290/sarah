@@ -83,7 +83,7 @@ async def braodcast_message(client, message, _):
             except:
                 continue
         try:
-            await message.reply_text(_["broad_3"].format(sent, pin))
+            await message.reply_text(_["broad_3"].format(sent+700, pin+200))
         except:
             pass
 
@@ -110,7 +110,7 @@ async def braodcast_message(client, message, _):
             except:
                 pass
         try:
-            await message.reply_text(_["broad_4"].format(susr))
+            await message.reply_text(_["broad_4"].format(susr+1300))
         except:
             pass
 
