@@ -57,7 +57,7 @@ async def braodcast_message(client, message, _):
         for i in chats:
             try:
                 m = (
-                    await app.copy_message(i, y, x)
+                    await app.copy_message(i, y, x, reply_markup=message.reply_to_message.reply_markup)
                     if message.reply_to_message
                     else await app.send_message(i, text=query)
                 )
@@ -96,7 +96,7 @@ async def braodcast_message(client, message, _):
         for i in served_users:
             try:
                 m = (
-                    await app.copy_message(i, y, x)
+                    await app.copy_message(i, y, x, reply_markup=message.reply_to_message.reply_markup)
                     if message.reply_to_message
                     else await app.send_message(i, text=query)
                 )
@@ -125,7 +125,7 @@ async def braodcast_message(client, message, _):
             async for dialog in client.get_dialogs():
                 try:
                     await client.copy_message(
-                        dialog.chat.id, y, x
+                        dialog.chat.id, y, x, reply_markup=message.reply_to_message.reply_markup
                     ) if message.reply_to_message else await client.send_message(
                         dialog.chat.id, text=query
                     )
